@@ -1,20 +1,30 @@
-﻿/* **Задача 32:** Напишите программу замена элементов массива: 
-положительные элементы замените на соответствующие отрицательные, и наоборот.
-[-4, -8, 8, 2] -> [4, 8, -8, -2] */
+﻿/* **Задача 33:** Задайте массив. Напишите программу, которая определяет, 
+присутствует ли заданное число в массиве.
+4; массив [6, 7, 19, 345, 3] -> нет
+3; массив [6, 7, 19, 345, 3] -> да */
+
 using static System.Console;
 Clear();
 
 int[] array = GetArray(8);
 WriteLine($"{String.Join(" ", array)}");
+Write("Введите число ");
+int number = int.Parse(ReadLine());
 
-for (int i = 0; i < array.Length; i++)
+bool result = FindElement(array,number);
+WriteLine($"Присутствует ли заданное число в массиве? {result}");
+bool FindElement(int[] mass, int element)
 {
-    array[i] *= (-1);
+for (int i = 0; i < mass.Length; i++)
+{
+    if(mass[i] == element)
+    {
+        return true;
+    }
+  
 }
-WriteLine($"{String.Join(" ", array)}");
-
-
-
+return false;
+}
 
 int[] GetArray(int L)
 {
